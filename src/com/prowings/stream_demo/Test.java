@@ -9,3 +9,4 @@ public class Test {
 //		}
 	}
 }
+//Compile time error :- Type mismatch: cannot convert from int to boolean
