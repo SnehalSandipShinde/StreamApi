@@ -16,6 +16,5 @@ public class HashMapDemo {
 								.groupingBy(st -> st, LinkedHashMap::new, Collectors.counting()));
 		
 		System.out.println(res);
-
 	}
 }
