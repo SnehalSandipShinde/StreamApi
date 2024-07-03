@@ -11,7 +11,9 @@ public class FindFirstElement {
 		
 		List<String> fruits = Arrays.asList("apple","Banana","grapes","blueberry");
 		
-		Optional<String> res = fruits.stream().filter(str -> str.toLowerCase().startsWith("b")).findFirst();
+		Optional<String> res = fruits.stream()
+								.filter(str -> str.toLowerCase().startsWith("b"))
+								.findFirst();
 		
 		System.out.println(res);
 	}

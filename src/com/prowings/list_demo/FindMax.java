@@ -23,10 +23,17 @@ public class FindMax {
 		listEmp.add(emp1);
 		listEmp.add(emp5);
 
+		
+		/*
+		 * int sum = listEmp.stream().mapToInt(Employee :: getId).sum();
+		 * 
+		 * System.out.println(sum);
+		 */
+		
+		
+		
 //		System.out.println(listEmp);
-		// Find the List of employees whose salary is above 50000 from the List of
-		// employee
-
+		
 		findSalary(listEmp , 400000);
 
 		// Sum of salary in Java 8
@@ -52,10 +59,16 @@ public class FindMax {
 	private static void sumOfSalary(List<Employee> listEmp) {
 		int totalSal = listEmp.stream()
 						.collect(Collectors.summingInt(Employee::getSalary));
-
+		int sal = listEmp.stream().mapToInt(Employee :: getSalary).sum();
 		System.out.println("Total Employees Salary : " + totalSal);
+		System.out.println("Total Employees Salary : " + sal);
 	}
 
+
+	/*
+	 * Find the List of employees whose salary is above 50000 from the List of
+	 * employee
+	 */
 	private static void findSalary(List<Employee> listEmp , int num) {
 		List<Employee> sal = listEmp.stream()
 					.filter(e -> e.salary > num)
@@ -84,7 +97,12 @@ public class FindMax {
 	private static void findMaxAge(List<Employee> listEmp) {
 		Optional<Employee> maxAge = listEmp.stream()
 						.collect(Collectors.maxBy(Comparator.comparing(Employee::getAge)));
+		
+		Optional<Employee> age =  listEmp.stream().distinct().skip(1).findFirst();
+		
 		System.out.println("Max Age: " + maxAge);
+		
+		System.out.println("Sec highest age: " + age);
 	}
 
 	public static List<Employee> convertNameCase(List<Employee> list) {
@@ -97,4 +115,7 @@ public class FindMax {
 
 		return nameList;
 	}
+	
+	
+	
 }
